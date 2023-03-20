@@ -34,6 +34,11 @@ public class GreetingControllerTests {
 	@Autowired
 	private MockMvc mockMvc;
 
+	/*noParamGreetingShouldReturnDefaultMessage() - Test description:
+		http request using get method to endpoint "/greeting" without params 
+		them print result, validate if response is 200 ("Ok")
+		and validate response content from JSON as an string "Hello, World!"
+	*/
 	@Test
 	public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
 
@@ -41,6 +46,11 @@ public class GreetingControllerTests {
 				.andExpect(jsonPath("$.content").value("Hello, World!"));
 	}
 
+	/*paramGreetingShouldReturnTailoredMessage() - Test description: 
+	 	http request using get method to endpoint "/greeting" with param "name" with value "Spring Community"
+		them print result, validate if response is 200 ("Ok")
+		and validate response content as an string "Hello, Spring Community!".
+	*/
 	@Test
 	public void paramGreetingShouldReturnTailoredMessage() throws Exception {
 
